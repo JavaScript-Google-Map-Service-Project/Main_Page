@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+       #map {
+        height: 600px;
+        width: 600px;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>JavaScript Project</h3>
+    <div id="map"></div>
+    <script>
+      var historicalOverlay
+      function initMap() {
+        var busan = new Array();
+        busan[1] = 129.07;
+        busan[0] = 35.17;
+        var koreaCenter = {lat: 35.95, lng: 127.8};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: koreaCenter,
+          streetViewControl: false,
+          mapTypeControl: false,
+          mapTypeControlOptions: {
+            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map']
+          },
+          rotateControl: false,
+          zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+          },
+        });
+        var styleMapType = new google.maps.StyledMapType(
+          [
+            {"elementType": "labels", "stylers": [{"visibility": "off"}]},
+            {"featureType": "administrative", "elementType": "geometry", "stylers": [{"visibility": "off"}]},
+            {"featureType": "administrative.land_parcel", "stylers": [{"visibility": "off"}]},
+            {"featureType": "administrative.neighborhood", "stylers": [{"visibility": "off"}]},
+            {"featureType": "poi", "stylers": [{"visibility": "off"}]},
+            {"featureType": "road", "stylers": [{"visibility": "off"}]},
+            {"featureType": "road", "elementType": "labels.icon", "stylers": [{"visibility": "off"}]},
+            {"featureType": "transit", "stylers": [{"visibility": "off"}]}
+          ]
+        );
+        map.mapTypes.set('styled_map', styleMapType);
+        map.setMapTypeId('styled_map');
+        var pictureSize = {
+          
+        }
+        var imageBounds = {
+          north: busan[0] - 0.03,
+          south: busan[0] + 0.03,
+          east: busan[1] - 0.05,
+          west: busan[1] + 0.05
+        };
+        var posit = {lat: 35.74, lng: 127.17};
+        historicalOverlay = new google.maps.GroundOverlay(
+          'C:\\Users\\simdh_f9mnl3r\\Downloads\\luca-zanon-26595.jpg',
+          imageBounds);
+        historicalOverlay.setMap(map);
+
+        historicalOverlay.addListener('click', function() {
+          map.setZoom(12);
+          map.setCenter(posit.getPosition());
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjdn9RR7z4TMRO-RczmdYc5ehemJTikRY&callback=initMap&libraries=drawing&style=feature:road|visibility:off&libraries=visualization$region=KR">
+    </script>
+  </body>
+</html>
