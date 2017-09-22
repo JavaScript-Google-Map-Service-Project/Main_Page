@@ -14,11 +14,12 @@
     <h3>JavaScript Project</h3>
     <div id="map"></div>
     <script>
-      var historicalOverlay
+      var busanPicture;
       function initMap() {
         var busan = new Array();
-        busan[1] = 129.07;
         busan[0] = 35.17;
+        busan[1] = 129.07;
+        var busanPosit = {lat: 35.17, lng: 129.07};
         var koreaCenter = {lat: 35.95, lng: 127.8};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 7,
@@ -47,24 +48,19 @@
         );
         map.mapTypes.set('styled_map', styleMapType);
         map.setMapTypeId('styled_map');
-        var pictureSize = {
-          
-        }
         var imageBounds = {
-          north: busan[0] - 0.03,
-          south: busan[0] + 0.03,
-          east: busan[1] - 0.05,
-          west: busan[1] + 0.05
+          north: busan[0] + 0.03,
+          south: busan[0] - 0.03,
+          east: busan[1] + 0.05,
+          west: busan[1] - 0.05
         };
-        var posit = {lat: 35.74, lng: 127.17};
-        historicalOverlay = new google.maps.GroundOverlay(
+        busanPicture = new google.maps.GroundOverlay(
           'C:\\Users\\simdh_f9mnl3r\\Downloads\\luca-zanon-26595.jpg',
           imageBounds);
-        historicalOverlay.setMap(map);
-
-        historicalOverlay.addListener('click', function() {
+        busanPicture.setMap(map);
+        busanPicture.addListener('click', function() {
           map.setZoom(12);
-          map.setCenter(posit.getPosition());
+          map.setCenter(busanPosit);
         });
       }
     </script>
