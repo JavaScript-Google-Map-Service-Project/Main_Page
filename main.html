@@ -14,6 +14,7 @@
     <h3>JavaScript Project</h3>
     <div id="map"></div>
     <script>
+      //사진클릭 이벤트 메인변수명 필드
       var busanPicture;
       var daeguPicture;
 
@@ -47,19 +48,19 @@
         map.mapTypes.set('styled_map', styleMapType);
         map.setMapTypeId('styled_map');
 
-        var busan = new clickZoom(busanPicture, map, 'C:\\Users\\simdh_f9mnl3r\\Downloads\\luca-zanon-26595.jpg', 35.125, 129.045, 30, 54);
-        var daegu = new clickZoom(daeguPicture, map, 'C:\\Users\\simdh_f9mnl3r\\Downloads\\luca-zanon-26595.jpg', 35.795, 128.563, 30, 54);
+        var busan = new clickZoom(busanPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg', 35.125, 129.045, 400, 600);
+        var daegu = new clickZoom(daeguPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg', 35.795, 128.563, 400, 600);
       }
       
       //사진클릭시 확대되는 이벤트 함수
       function clickZoom(picture, mainMap, pictureLocation, latitude, longitude, height, width) {
-        /*clickZoom(이름, 
+        /*clickZoom(메인변수(17번 줄에서 메인변수 선언 필요), 
                     무조건 map기입, 
-                    사진 저장위치, 
+                    사진 저장위치(저장위치 기입시 경로에 백슬래시(\)가 있다면 슬래시(/)로 바꿔야함.), 
                     목표장소 위도, 
                     목표장소 경도, 
-                    사진 세로길이(기본 10단위) : height / 1000, 
-                    사진 가로길이(기본 10단위) : width / 1000)
+                    사진 세로길이(pixel) : height / 10000, 
+                    사진 가로길이(pixel) : width / 10000)
         */
         var picture;
     
@@ -71,10 +72,10 @@
         var width;
 
         var imageSize = {
-          north: latitude + (height / 1000),
-          south: latitude - (height / 1000),
-          east: longitude + (width / 1000),
-          west: longitude - (width / 1000)
+          north: latitude + (height / 10000),
+          south: latitude - (height / 10000),
+          east: longitude + (width / 10000),
+          west: longitude - (width / 10000)
         }
 
         picture = new google.maps.GroundOverlay(
