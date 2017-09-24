@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <style>
        #map {
-        height: 600px;
-        width: 600px;
+        height: 650px;
+        width: 650px;
        }
     </style>
   </head>
@@ -14,9 +14,17 @@
     <h3>JavaScript Project</h3>
     <div id="map"></div>
     <script>
-      //사진클릭 이벤트 메인변수명 필드
+      //사진클릭 이벤트 이벤트변수명 필드
+      var seoulPicture;
+      var incheonPicture;
       var busanPicture;
       var daeguPicture;
+      var jejuPicture;
+      var daejeonPicture;
+      var ulsanPicture;
+      var gwangjuPicture;
+      var ulleungPicture;
+
       function initMap() {
         var koreaCenter = {lat: 35.95, lng: 127.8};
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -50,11 +58,25 @@
                                   35.115, 129.045, 640);
         var daegu = new clickZoom(daeguPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg', 
                                   35.783, 128.563, 640);
+        var seoul = new clickZoom(seoulPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg',
+                                  37.505, 126.993, 640);
+        var incheon = new clickZoom(incheonPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg',
+                                  37.41, 126.705, 640);
+        var jeju = new clickZoom(jejuPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg',
+                                  33.453, 126.533, 640);
+        var daejeon = new clickZoom(daejeonPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg',
+                                  36.295, 127.395, 640);
+        var ulsan = new clickZoom(ulsanPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg',
+                                  35.5, 129.256, 640);
+        var gwangju = new clickZoom(gwangjuPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg',
+                                  35.11, 126.837, 640);
+        var ulleung = new clickZoom(ulleungPicture, map, 'https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/example.jpg',
+                                  37.46, 130.86, 640);
       }
       
       //사진클릭시 확대되는 이벤트 함수
       function clickZoom(picture, mainMap, pictureLocation, latitude, longitude, width) {
-        /*clickZoom(메인변수(17번 줄에서 메인변수 선언 필요), 
+        /*clickZoom(이벤트변수(17번 줄에서 이벤트변수 선언 필요), 
                     무조건 map기입, 
                     사진 저장위치('https://raw.githubusercontent.com/JavaScript-Google-Map-Service-Project/Main_Page/master/*'
                                 github에 사진파일 업로드 후 *위치에 사진파일 이름 기입), 
