@@ -14,6 +14,7 @@
     <h3>JavaScript Project</h3>
     <div id="map"></div>
     <script>
+      var koreaCenter = {lat: 35.95, lng: 127.8};
       //사진클릭 이벤트 이벤트변수명 필드
       var seoulPicture;
       var incheonPicture;
@@ -26,7 +27,6 @@
       var ulleungPicture;
 
       function initMap() {
-        var koreaCenter = {lat: 35.95, lng: 127.8};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 7,
           center: koreaCenter,
@@ -93,7 +93,7 @@
         var latitude;
         var longitude;
         var width;
-        
+
         var imageSize = {
           north: latitude + (width / 16000),
           south: latitude - (width / 16000),
@@ -103,10 +103,16 @@
         picture = new google.maps.GroundOverlay(
           pictureLocation, imageSize);
         picture.setMap(mainMap);
-        picture.addListener('click', function() {
-          mainMap.setZoom(12);
-          mainMap.setCenter({lat: latitude, lng: longitude});
-        });
+          picture.addListener('click', function() {
+            if (mainMap.getZoom() != 12) {
+              mainMap.setZoom(12);
+              mainMap.setCenter({lat: latitude, lng: longitude});
+            }
+            else if (mainMap.getZoom() == 12) {
+              mainMap.setZoom(7);
+              mainMap.setCenter(koreaCenter);
+            }
+          });
       }
     </script>
     <script async defer
