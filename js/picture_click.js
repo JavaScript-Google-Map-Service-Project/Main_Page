@@ -58,7 +58,6 @@ function initMap() {
   var ulleung = new clickZoom(ulleungPicture, map, 'images/example.jpg',
                             37.46, 130.86, 640);
 }
-
 //사진클릭시 확대되는 이벤트 함수
 function clickZoom(picture, mainMap, pictureLocation, latitude, longitude, width) {
   /*clickZoom(이벤트변수(17번 줄에서 이벤트변수 선언 필요),

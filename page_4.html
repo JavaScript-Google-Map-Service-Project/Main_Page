@@ -6,8 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <script src="js/ClickSpeed.js"></script>
+  <style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: black;
+        cursor: pointer;
+        color: white;
+        text-align: center;
+        font-size: 36px;
+    }
+  </style>
 </head>
-<body style="margin: 0; height: 100%; overflow: hidden">
+<body style="margin: 0; height: 100%; overflow: hidden" onselectstart="return false" ondragstart="return false">
   <a href="Index.html"><img class="left-image" src="images/logoSymbol.png"></a>
   <div class="sidenav">
     <a href="page_1.html">1 page</a>
@@ -17,7 +29,13 @@
   </div>
   
   <div class="content">
-    didlrotoRldi
+    <div id="first" class="box" onclick="tm(); cnt();" style="left: 44%; top: 50px; border-radius: 50%; visibility: visible; position: relative; z-index: 2;"><br>클릭!</div>
+    <div id="second" class="box" onclick="kk()" style="left: 44%; top: -150px; border-radius: 50%; visibility: hidden; position: relative; z-index: 1"><br>클릭!</div>
+    <div style="top: -150px; position: relative">
+        <p id="display" style="text-align: center; font-size: 36px;">0.00c/s</p>
+        <p id="time" style="text-align: center; font-size: 18px;">0.0초</p>
+        <p id="count" style="text-align: center; font-size: 18px;">0번</p>
+    </div>
   </div>
 
 </body>
