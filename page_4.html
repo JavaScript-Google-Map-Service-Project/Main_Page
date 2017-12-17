@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>구글 API를 이용한 다양한 정보제공 시스템</title>
+  <title>Map Hack</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="css/menu.css">
-  <script src="js/ClickSpeed.js"></script>
+  <script src="js/Asset/click_speed.js"></script>
   <style>
     .box {
         width: 200px;
@@ -15,22 +15,23 @@
         cursor: pointer;
         color: white;
         text-align: center;
-        font-size: 36px;
     }
   </style>
 </head>
 <body style="margin: 0; height: 100%; overflow: hidden" onselectstart="return false" ondragstart="return false">
-  <a href="Index.html"><img class="left-image" src="images/logoSymbol.png"></a>
+  <div style="position: fixed"><a href="Index.html"><img class="left-image" src="images/logoSymbol.png"></a></div>
   <div class="sidenav">
-    <a href="page_1.html">1 page</a>
-    <a href="page_2.html">2 page</a>
-    <a href="page_3.html">3 page</a>
-    <a href="page_4.html" class="list-group-item active">4 page</a>
+    <a href="page_1.html" style="padding-top: 30px;">Weather</a>
+    <a href="page_2.html" style="padding-top: 10px;">Famous Restaurant</a>
+    <a href="page_3.html" style="padding-top: 30px;">Travel</a>
+    <a href="page_4.html" style="padding-top: 10px;" class="list-group-item active">Mouse Click Speed Test</a>
   </div>
+
+  <div style="height: 100px;"></div>
   
-  <div class="content">
-    <div id="first" class="box" onclick="tm(); cnt();" style="left: 44%; top: 50px; border-radius: 50%; visibility: visible; position: relative; z-index: 2;"><br>클릭!</div>
-    <div id="second" class="box" onclick="kk()" style="left: 44%; top: -150px; border-radius: 50%; visibility: hidden; position: relative; z-index: 1"><br>클릭!</div>
+  <div class="content" style="float: left; left: 800px; margin-left: 0; top: 150px;">
+    <div id="first" class="box" onclick="tm(); cnt();" style="top: 50px; border-radius: 50%; visibility: visible; position: relative; z-index: 2;"><br><p style="margin-top: 42px; font-size: 56px;">클 릭!</p></div>
+    <div id="second" class="box" onclick="kk()" style="top: -150px; border-radius: 50%; visibility: hidden; position: relative; z-index: 1"><br><p style="margin-top: 42px; font-size: 56px;">클 릭!</p></div>
     <div style="top: -150px; position: relative">
         <p id="display" style="text-align: center; font-size: 36px;">0.00c/s</p>
         <p id="time" style="text-align: center; font-size: 18px;">0.0초</p>

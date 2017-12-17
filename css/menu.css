@@ -19,14 +19,16 @@ body {
   color: rgb(0, 0, 0);
   text-decoration: none;
   box-sizing: border-box;
-  margin-left: -2.3px;
-  margin-right: -2.3px;
+  font-size: 36px;
+  position: absolute;
   transition: background-color 0.35s, color 0.35s;
   border-radius: 5%;
   box-sizing: border-box;
 }
 
 .indexnav {
+  padding: 0;
+  position: absolute;
   list-style: none;
   z-index: 1;
   top: 0;
@@ -42,9 +44,8 @@ body {
 }
 
 .content {
-  margin-top: 10px;
-  margin-left: 200px;
-  padding-left: 20px;
+  margin-left: 20px;
+  position: absolute;
 }
 
 .center-image {
@@ -71,6 +72,8 @@ body {
 .sidenav a {
   color: white;
   padding: 16px;
+  font-size: 28px;
+  height: 100px;
   text-decoration: none;
   display: block;
   transition: background-color 0.35s, color 0.35s;
@@ -88,4 +91,39 @@ body {
   margin-right: auto;
   margin-top: 15px;
   margin-bottom: auto;
+  padding-right: 37px;
+  padding-bottom: 13px;
+}
+
+.w-button {
+  float: left;
+  margin-top: 15px;
+  margin-left: 30px;
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid;
+  border-color: black;
+  font-size: 36px;
+  transition: background-color 0.35s, color 0.35s;
+}
+
+.w-button:hover {
+  background-color: black;
+  color: white;
+  transition: background-color 0.35s, color 0.35s;
+}
+
+.info-box {
+  float: left;
+  left: 890px;
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 30px;
+}
+
+.body-text {
+  margin: 0;
+  font-size: 18px;
 }
