@@ -47,9 +47,37 @@ function initMap() {
         map.setZoom(7);
         map.setCenter(koreaCenter);
       }
+      $(document).ready(function () {
+        $('#headline').html(_data[i].name);
+        $('#text').html("주소: " + _data[i].address + "<br>Tel. ");
+      });
     });
   }
+  
+  google.maps.Marker.prototype.getCustomData = function(key) {
+    if(typeof(this.custom_data) === 'undefined') {
+      this.custom_data = {};
+    }
+    if(typeof(key) !== 'undefined') {
+      return this.custom_data[key];
+    }
+    else {
+      return this.custom_data;
+    }
+  }
+  google.maps.Marker.prototype.setCustomData = function(key, value) {
+    if(typeof(this.custom_data) === 'undefined') {
+      this.custom_data = {};
+    }
+    if(typeof(value) !== 'undefined') {
+      this.custom_data[key] = value;
+    }
+    else {
+      this.custom_data = key;
+    }
+  }
 }
+
 
 locDat = {
   "famous_restaurant": [
