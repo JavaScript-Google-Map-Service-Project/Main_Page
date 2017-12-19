@@ -31,19 +31,18 @@ function initMap() {
   );
   map.mapTypes.set('styled_map', styleMapType);
   map.setMapTypeId('styled_map');
-
-  for (var i in _data) {
+  for (i in _data) {
     marker[i] = new google.maps.Marker({
       position: {lat: _data[i].latitude, lng: _data[i].longitude},
       title: _data[i].name,
       map: map,
-      icon: "images/famous_restaurant.png",
+      icon: "images/travel_place.png",
       customInfo: i
     });
     marker[i].addListener('click', function() {
       var markerNum = Number(this.customInfo);
-      if (map.getZoom() < 18) {
-        map.setZoom(18);
+      if (map.getZoom() < 12) {
+        map.setZoom(12);
         map.setCenter(this.getPosition());
       }
       else {
@@ -169,17 +168,7 @@ locDat = {
       "address": "부산광역시 해운대구 중1동 중동2로10번길 32-10",
       "latitude": 35.163340,
       "longitude":129.166639,
-      "tel" : "051-746-0033"},
-    {"name": "봉포머구리집",
-      "address": "강원 속초시 영랑해안길 223",
-      "latitude": 38.2142361,
-      "longitude": 128.5989888,
-      "tel" : "033-631-2021"},
-    {"name": "산토리니 카페 레스토랑",
-      "address": "강원 춘천시 동면 순환대로 1154-97",
-      "latitude": 37.8914143,
-      "longitude": 127.7764909,
-      "tel" : "033-242-3010"}
+      "tel" : "051-746-0033"}
   ],
   "travel_place": [
     {"name": "창덕궁",
@@ -286,52 +275,7 @@ locDat = {
       "address": "강원도 평창군 미탄면 미탄면 마하리",
       "latitude": 37.277801, 
       "longitude": 128.576987,
-      "tel" : "033-334-7200"},
-    {"name": "대관령",
-      "address": "강원 평창군 대관령면 횡계리",
-      "latitude": 37.6871367, 
-      "longitude": 128.7605707,
-      "tel" : ""},
-    {"name": "고래불해수욕장",
-      "address": "경북 영덕군 병곡면",
-      "latitude": 36.5998363, 
-      "longitude": 129.411597,
-      "tel" : "054-730-7802"},
-    {"name": "삽교함상공원",
-      "address": "충남 당진시 신평면 삽교천3길 79",
-      "latitude": 36.890558, 
-      "longitude": 126.8244475,
-      "tel" : "041-363-6960"},
-    {"name": "지리산",
-      "address": "경남 산청군 시천면",
-      "latitude": 35.336944, 
-      "longitude": 127.730555,
-      "tel" : "055-972-7771"},
-    {"name": "인천 차이나 타운",
-      "address": "인천 중구 차이나타운로59번길 12",
-      "latitude": 37.4763539, 
-      "longitude": 126.6181934,
-      "tel" : "032-760-7537"},
-    {"name": "보성 녹차밭",
-      "address": "전남 보성군 보성읍 녹차로 763-43",
-      "latitude": 34.7148119, 
-      "longitude": 127.0809827,
-      "tel" : "061-852-4540"},
-    {"name": "동강",
-      "address": "강원 영월군 영월읍",
-      "latitude": 37.1841643, 
-      "longitude": 128.4635034,
-      "tel" : "033-375-5377"},
-    {"name": "한담해안산책로",
-      "address": "제주 제주시 애월읍",
-      "latitude": 33.4600334, 
-      "longitude": 126.3105898,
-      "tel" : "064-728-8822"},
-    {"name": "광치기해변",
-      "address": "제주특별자치도 서귀포시 성산읍 고성리 224-33",
-      "latitude": 33.4524143, 
-      "longitude": 126.9246908,
-      "tel" : ""}
+      "tel" : "033-334-7200"}
   ]
 };
-var _data = locDat.famous_restaurant;
+var _data = locDat.travel_place;
